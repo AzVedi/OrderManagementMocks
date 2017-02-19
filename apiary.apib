@@ -1,0 +1,124 @@
+FORMAT: 1A
+HOST: http://om.apiblueprint.org/
+
+# Order management
+
+Address is a simple API allowing to view address per account
+
+##Address Collection [/addresses]
+
+### List ALL Addresses [GET]
++ Response 200 (application/json)
+
+        [
+                {
+                    "owner" : {
+                        "id" : 238,
+                        "name" : "Sarin RnD",
+                        "userId" : "ab1f7108-799e-4a53-9d54-e389e21214d3",
+                        "userName" : "RnD@sarin.com"
+                    },
+                    "addresses" : [{
+                        "id" : 123,
+                        "fullName" : "alex primary address in India",
+                        "addressLine1" : "15 Hashoshanim",
+                        "addressLine2" : "st",
+                        "city" : "Ariel",
+                        "state" : "Center",
+                        "zip" : 123456,
+                        "country" : "Israel",
+                        "phone" : "0523252425",
+                        "isDefault" : false
+                    },{
+                        "id" : 222,
+                        "fullName" : "Miri primary address in India",
+                        "addressLine1" : "15 Hashoshanim",
+                        "addressLine2" : "st",
+                        "city" : "Ariel",
+                        "state" : "Center",
+                        "zip" : 123456,
+                        "country" : "Israel",
+                        "phone" : "0523252425",
+                        "isDefault" : false
+                    }]
+                },
+                {
+                    "owner" : {
+                        "id" : 111,
+                        "name" : "Sarin Dev",
+                        "userId" : "ab1f7108-799e-4a53-9d54-e389e21214d3",
+                        "userName" : "RnDDev@sarin.com"
+                    },
+                    "addresses" : [{
+                        "id" : 223,
+                        "fullName" : "alex primary address in India",
+                        "addressLine1" : "15 Hashoshanim",
+                        "addressLine2" : "st",
+                        "city" : "Ariel",
+                        "state" : "Center",
+                        "zip" : 123456,
+                        "country" : "Israel",
+                        "phone" : "0523252425",
+                        "isDefault" : false
+                    },{
+                        "id" : 224,
+                        "fullName" : "Miri primary address in India",
+                        "addressLine1" : "15 Hashoshanim",
+                        "addressLine2" : "st",
+                        "city" : "Ariel",
+                        "state" : "Center",
+                        "zip" : 123456,
+                        "country" : "Israel",
+                        "phone" : "0523252425",
+                        "isDefault" : false
+                    }]
+                }
+        ]
+
+
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
